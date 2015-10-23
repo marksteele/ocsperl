@@ -1,0 +1,14 @@
+{application, ocsperl,
+ [
+  {description, "An Erlang library to perform OCSP lookups uing libocsp"},
+  {vsn, "1"},
+  {modules, [
+             ocsperl
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
