@@ -6,3 +6,4 @@ ebin/*
 .*_plt
 priv/
 c_src/*.o
+c_src/*.d

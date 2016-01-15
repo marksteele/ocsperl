@@ -1,0 +1,11 @@
+#!/usr/bin/env escript
+%% -*- erlang -*-
+
+main([Cert,Ca,Issuer]) ->
+  {ok,CertBin} = file:read_file(Cert),
+  {ok,CaBin} = file:read_file(Ca),
+  {ok,IssuerBin} = file:read_file(Issuer),
+  true = code:add_path("../ebin"),
+  application:set_env(code,sopath,"../priv"),
+  {Time,_} = timer:tc(fun() -> io:format("Response: ~p~n",[ocsperl:check(CertBin,CaBin,IssuerBin)]) end),
+  io:format("Time for check: ~p milliseconds~n",[Time/1000]).
